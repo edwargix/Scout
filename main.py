@@ -25,17 +25,9 @@ class TeamsScreen(Screen):
 
 class ScoutScreenManager(ScreenManager):
     def goto_team(self, n):
-        s = TeamScreen(num=n, name="Team name")
+        s = TeamScreen(num=n, name=str(n))
         self.add_widget(s)
-        self.current = "Team name"
-    ###############################################################################
-    # def do_layout(self, *args):                                                 #
-    #     super(ScoutLayout, self).do_layout()                                    #
-    #     layout = self.ids['layout']                                             #
-    #     # self.ids.layout.bind(minimum_height=self.ids.layout.setter('height')) #
-    #     layout.bind(minimum_height=layout.setter('height'))                     #
-    #     print layout.minimum_height                                             #
-    ###############################################################################
+        self.current = str(n)
 
 
 class ScoutApp(App):
