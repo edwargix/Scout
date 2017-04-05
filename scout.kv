@@ -12,10 +12,11 @@
         text: str(root.num)
         pos: root.pos
         size: root.size
-        on_release: app.root.goto_team(3090)
+        on_release: app.root.goto_team(root.num)
         size_hint_y: 0
 
 <TeamsScreen>:
+    name: 'teams'
     ScrollView:
         size: (Window.width, Window.height)
         GridLayout:
@@ -59,8 +60,14 @@
             size: Window.size
     BoxLayout:
         orientation: 'vertical'
-        Label:
-            text: str(root.num)
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                size_hint_x: 0.25
+                text: 'Back'
+                on_release: app.root.current = 'teams'
+            Label:
+                text: str(root.num)
         BoxLayout:
             Label:
                 text: 'Match #'
