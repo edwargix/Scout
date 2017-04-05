@@ -1,0 +1,46 @@
+#:import Window kivy.core.window.Window
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<ScoutScreenManager>:
+    id: screenmanager
+    transition: FadeTransition()
+    TeamsScreen:
+
+<Team>:
+    Button:
+        text: str(root.num)
+        pos: root.pos
+        size: root.size
+        on_release: app.root.goto_team(3090)
+
+<TeamsScreen>:
+    ScrollView:
+        size: (Window.width, Window.height)
+        GridLayout:
+            id: layout
+            size_hint_y: None
+            cols: 1
+            rows: 8
+            row_default_height: Window.width / 6
+            row_force_default: True
+            orientation: 'vertical'
+            Team:
+                num: 3090
+            Team:
+                num: 6969
+            Team:
+                num: 6666
+            Team:
+                num: 9000
+            Team:
+                num: 1000
+            Team:
+                num: 1212
+            Team:
+                num: 1515
+            Team:
+                num: 1616
+
+<TeamScreen>:
+    Label:
+        text: 'hello world!'
