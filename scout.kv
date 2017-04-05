@@ -41,6 +41,62 @@
             Team:
                 num: 1616
 
+<Label>:
+    color: (0,0,0,1)
+
+<CheckBox>:
+    color: (0,0,0,1)
+
 <TeamScreen>:
-    Label:
-        text: 'hello world!'
+    canvas:
+        Color:
+            rgba: 0.55,0.55,0.55,1
+        Rectangle:
+            pos: self.pos
+            size: Window.size
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            Label:
+                text: 'Match #'
+            TextInput:
+        BoxLayout:
+            Label:
+                text: 'Auto'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'F'
+                CheckBox:
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'S'
+                CheckBox:
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'B'
+                CheckBox:
+        BoxLayout:
+            Label:
+                text: 'Notes'
+            TextInput:
+        BoxLayout:
+            Label:
+                text: 'Teleop'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'Gears'
+                TextInput:
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'High Goal'
+                TextInput:
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'Defense'
+                TextInput:
