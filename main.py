@@ -8,6 +8,7 @@ from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
+import os
 kivy.require('1.9.1')
 
 
@@ -16,11 +17,24 @@ class Team(Widget):
 
 
 class TeamScreen(Screen):
-    pass
+    num = NumericProperty()
 
 
 class TeamsScreen(Screen):
-    num = NumericProperty()
+    def do_layout(self, *args):
+        # command = '''awk -F '\t' '{print $1}' /home/ramhawks/Downloads/listOfTeams.txt'''
+        # output = os.system(command)
+        # teams = str(output).split('\n')
+        # print teams
+        numbers = []
+        file = open('/home/ramhawks/Downloads/listOfTeams.txt', 'r')
+        for line in file.readlines():
+            split = line.split("\t")
+            numbers.append(int(split[0]))
+        print "Team numbers: ", numbers
+        for num in numbers:
+            self.ids.team_grid.add_widget(Team(num=num))
+        self.ids.team_grid.rows = len(numbers)
 
 
 class ScoutScreenManager(ScreenManager):
