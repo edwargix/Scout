@@ -41,7 +41,8 @@ class ScoutScreenManager(ScreenManager):
         self.current = str(n)
 
     def save_team(self, n):
-        save_data = open('./data.txt', 'r+')
+        save_data = open('./data.txt', 'w+')
+        print 'Saving data for team ', n
         for line in save_data.readlines():
             split = line.split('|')
             if (split[0] == str(n)):
