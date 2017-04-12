@@ -22,12 +22,8 @@ class TeamScreen(Screen):
 
 class TeamsScreen(Screen):
     def do_layout(self, *args):
-        # command = '''awk -F '\t' '{print $1}' /home/ramhawks/Downloads/listOfTeams.txt'''
-        # output = os.system(command)
-        # teams = str(output).split('\n')
-        # print teams
         numbers = []
-        file = open('/home/ramhawks/Downloads/listOfTeams.txt', 'r')
+        file = open(os.getcwd() + '/teams.txt', 'r')
         for line in file.readlines():
             split = line.split("\t")
             numbers.append(int(split[0]))
