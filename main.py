@@ -40,6 +40,14 @@ class ScoutScreenManager(ScreenManager):
         self.add_widget(s)
         self.current = str(n)
 
+    def save_team(self, n):
+        save_data = open('./data.txt', 'r+')
+        for line in save_data.readlines():
+            split = line.split('|')
+            if (split[0] == str(n)):
+                # TODO: save data for team
+                break
+
 
 class ScoutApp(App):
     def build(self):
