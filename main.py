@@ -29,9 +29,9 @@ class TeamsScreen(Screen):
             split = line.split("|")
             numbers.append((int(split[0]), str(split[1])))
         print "Team numbers: ", numbers
+        self.ids.team_grid.rows = len(numbers)
         for num, name in numbers:
             self.ids.team_grid.add_widget(Team(num=num, name=name))
-        self.ids.team_grid.rows = len(numbers)
 
 
 class ScoutScreenManager(ScreenManager):
