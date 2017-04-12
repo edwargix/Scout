@@ -41,13 +41,20 @@ class ScoutScreenManager(ScreenManager):
         self.current = str(n)
 
     def save_team(self, n):
-        save_data = open('./data.txt', 'w+')
-        print 'Saving data for team ', n
-        for line in save_data.readlines():
-            split = line.split('|')
-            if (split[0] == str(n)):
-                # TODO: save data for team
-                break
+        done = False
+        with open('data.txt', 'r') as read_data:
+            print 'Saving data for team ', n
+            for line in read_data.readlines():
+                print 'Line: ', line
+                split = line.split('|')
+                if (split[0] == str(n)):
+                    # TODO: change data for team
+                    done = True
+                    break
+        if (done == False):
+            print 'Attempting to append data'
+            with open('data.txt', 'a') as append_data:
+                append_data.write('|\n' + str(n))
 
 
 class ScoutApp(App):
