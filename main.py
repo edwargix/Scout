@@ -24,8 +24,8 @@ class TeamScreen(Screen):
 class TeamsScreen(Screen):
     def do_layout(self, *args):
         numbers = []
-        file = open(os.getcwd() + '/teams.txt', 'r')
-        for line in file.readlines():
+        teams_file = open(os.getcwd() + '/teams.txt', 'r')
+        for line in teams_file.readlines():
             split = line.split("|")
             numbers.append((int(split[0]), str(split[1])))
         print "Team numbers: ", numbers
