@@ -1,0 +1,10 @@
+1. Match numbers
+2. Autononmous abilities
+   1. F
+   2. S
+   3. B
+3. Notes
+4. Teleop abilities
+   1. Gears
+   2. High Goal
+   3. Defense
