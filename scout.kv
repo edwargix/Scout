@@ -9,7 +9,7 @@
 <Team>:
     size_hint_y: 0
     Button:
-        text: str(root.num)
+        text: str(root.num) + "  " + root.name
         pos: root.pos
         size: root.size
         on_release: app.root.goto_team(root.num)
