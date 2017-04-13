@@ -45,18 +45,22 @@ class ScoutScreenManager(ScreenManager):
         done = False
         # Format:
         # [match numbers],[bool,bool,bool],"Notes",["teleop"]
-        with open('data.txt', 'r') as read_data:
-            for line in read_data.readlines():
-                print 'Line: ', line
-                split = line.split('|')
-                if (split[0] == str(n)):
-                    # TODO: change data for team
-                    done = True
-                    break
-        if (done == False):
-            print 'Attempting to append data'
-            with open('data.txt', 'a') as append_data:
-                append_data.write('|\n' + str(n))
+        try:
+            with open('data.txt', 'r') as read_data:
+                for line in read_data.readlines():
+                    print 'Line: ', line
+                    split = line.split('|')
+                    if (split[0] == str(n)):
+                        # TODO: change data for team
+                        done = True
+                        break
+            if (done == False):
+                print 'Attempting to append data'
+                with open('data.txt', 'a') as append_data:
+                    append_data.write('\n' + str(n) + '|')
+        except IOError:
+            with open('data.txt', 'w') as data:
+                data.write(str(n) + '|')
 
 
 class ScoutApp(App):
