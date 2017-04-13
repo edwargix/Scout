@@ -8,8 +8,14 @@ from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, StringProperty
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
+
 import os
+import json
+
 kivy.require('1.9.1')
+
+
+teams = {}
 
 
 class Team(Widget):
@@ -65,7 +71,33 @@ class ScoutScreenManager(ScreenManager):
 
 class ScoutApp(App):
     def build(self):
-        return ScoutScreenManager()
+        global teams
+        try:
+            with open('data.txt', 'r') as file:
+                teams = json.loads(file.read())
+        finally:
+            print teams
+            with open('teams.txt', 'r') as file:
+                for line in file.readlines():
+                    split = line.split('|')
+                    num = split[0]
+                    name = split[1][:-1]
+                    if num not in teams:
+                        print 'this thing ran!', num, name
+                        teams[num] = {
+                            'name': split[1][:-1],
+                            'auto': [False, False, False],
+                            'notes': '',
+                            'teleop': {
+                                'gears': '',
+                                'high goal': '',
+                                'defense': ''
+                            }
+                        }
+                    else:
+                        teams[num]['name'] = name
+
+            return ScoutScreenManager()
 
 
 if __name__ == '__main__':
