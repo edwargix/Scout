@@ -65,20 +65,24 @@
                 Label:
                     text: 'F'
                 CheckBox:
+                    id: auto_f
             BoxLayout:
                 orientation: 'vertical'
                 Label:
                     text: 'S'
                 CheckBox:
+                    id: auto_s
             BoxLayout:
                 orientation: 'vertical'
                 Label:
                     text: 'B'
                 CheckBox:
+                    id: auto_b
         BoxLayout:
             Label:
                 text: 'Notes'
             TextInput:
+                id: notes
         BoxLayout:
             Label:
                 text: 'Teleop'
@@ -87,16 +91,19 @@
                 Label:
                     text: 'Gears'
                 TextInput:
+                    id: teleop_gears
             BoxLayout:
                 orientation: 'vertical'
                 Label:
                     text: 'High Goal'
                 TextInput:
+                    id: teleop_high_goal
             BoxLayout:
                 orientation: 'vertical'
                 Label:
                     text: 'Defense'
                 TextInput:
+                    id: teleop_defense
         Button:
             text: 'Save'
             on_release: app.root.save_team(int(root.num))
